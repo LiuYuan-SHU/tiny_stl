@@ -3,6 +3,7 @@
 .xmake
 .vscode
 build
+**/.DS_Store
 
 # Prerequisites
 *.d
