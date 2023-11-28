@@ -2,6 +2,7 @@
 .cache
 .xmake
 .vscode
+.idea
 build
 **/.DS_Store
 
