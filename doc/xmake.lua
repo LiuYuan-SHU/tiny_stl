@@ -5,7 +5,7 @@ target("doc")
   set_configdir("$(buildir)/doc")
   set_configvar("CONF_PROJECT_NAME", "Tiny STL")
   set_configvar("CONF_OUTPUT_DIR", "$(buildir)/doc")
-  set_configvar("CONF_INPUT", "$(projectdir)/include $(projectdir)/src")
+  set_configvar("CONF_INPUT", "$(projectdir)/include")
   add_configfiles("$(projectdir)/doc/Doxyfile.in", {filename = "Doxyfile"})
 
   on_run(function (target)
