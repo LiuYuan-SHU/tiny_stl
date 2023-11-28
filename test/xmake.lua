@@ -1,0 +1,6 @@
+add_requires("gtest", {arch = os.arch(), debug = true})
+target("test")
+    set_kind("binary")
+    add_files("*.cpp")
+    add_packages("gtest")
+target_end()
