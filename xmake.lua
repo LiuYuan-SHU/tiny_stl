@@ -20,3 +20,6 @@ add_includedirs("include")
 
 -- test target
 includes("test")
+
+-- doc target
+includes("doc")
