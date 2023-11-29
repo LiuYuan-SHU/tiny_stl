@@ -4,11 +4,11 @@
  * @brief  This file contains some type traits
  *
  * @details This file contains some type traits, including:
- * - integral_constant
- * - compile_time_constant_bool
- * - true_type
- * - false_type
- * - is_pair
+ * - `integral_constant`
+ * - `compile_time_constant_bool`
+ * - `true_type`
+ * - `false_type`
+ * - `is_pair`
  */
 #ifndef TINY_STL__INCLUDE__TYPE_TRAITS_HPP
 #define TINY_STL__INCLUDE__TYPE_TRAITS_HPP
