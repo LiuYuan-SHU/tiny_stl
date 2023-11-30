@@ -13,7 +13,7 @@ type_traits.hpp --> iterator.hpp
 
 ### [`type_traits.hpp`](./include/type_traits.hpp)
 
-使用`constexpr`实现编译期常量的使用
+使用`constexpr`实现编译期常量的使用d
 
 ### [`iterator.hpp`](./include/iterator.hpp)
 
@@ -73,3 +73,5 @@ type_traits.hpp --> iterator.hpp
         // Specialization for integral types
       };
       ```
+3. `template <class T> struct iterator_traits<const T *>`: [为何`value_type`是`T`](https://stackoverflow.com/questions/12819405/why-is-stditerator-traitsvalue-type-non-const-even-for-a-const-iterator)
+4. `template<class Iterator >reference [tiny_stl::reverse_iterator](classtiny__stl_1_1reverse__iterator.html)< Iterator >::operator*()const`: 为何取值操作先自减, 再取值: https://stackoverflow.com/a/74161268/16941344
