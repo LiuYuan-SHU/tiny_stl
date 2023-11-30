@@ -21,21 +21,21 @@ TEST(Test_TypeTraits, IntegralConstant_Value) {
   EXPECT_EQ((integral_constant<bool, false>::value), false);
 }
 
-TEST(Test_CompileTimeConstantBool, Constructor) {
+TEST(Test_TypeTraits, CompileTimeConstantBool_Constructor) {
   using tiny_stl::compile_time_constant_bool;
 
   EXPECT_NO_FATAL_FAILURE((compile_time_constant_bool<true>()));
   EXPECT_NO_FATAL_FAILURE((compile_time_constant_bool<false>()));
 }
 
-TEST(Test_CompileTimeConstantBool, Value) {
+TEST(Test_TypeTraits, CompileTimeConstantBool_Value) {
   using tiny_stl::compile_time_constant_bool;
 
   EXPECT_EQ((compile_time_constant_bool<true>::value), true);
   EXPECT_EQ((compile_time_constant_bool<false>::value), false);
 }
 
-TEST(Test_IsPair, IsPair) {
+TEST(Test_TypeTraits, IsPair_Value) {
   using tiny_stl::is_pair;
   using tiny_stl::pair;
 
