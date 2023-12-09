@@ -1,10 +1,9 @@
 #ifndef TINY_STL__INCLUDE__UTILITY_HPP
-#define TINY_STL__INCLUDE__UTILITY_HPP
+#define TINY_STL__INCLUDE__UTIL_HPP
 
 #include "type_traits.hpp"
 
 #include <cstddef>
-#include <type_traits>
 
 namespace tiny_stl {
 
@@ -38,9 +37,9 @@ T &&forward(typename std::remove_reference_t<T> &&arg) noexcept {
 }
 
 template <class T> void swap(T &left, T &right) {
-  auto tmp(move(left));
-  left = move(right);
-  right = move(tmp);
+  auto tmp(::tiny_stl::move(left));
+  left = ::tiny_stl::move(right);
+  right = ::tiny_stl::move(tmp);
 }
 
 template <class ForwardIter1, class ForwardIter2>
@@ -224,4 +223,4 @@ template <class T1, class T2> pair<T1, T2> make_pair(T1 &&first, T2 &&second) {
 
 } // namespace tiny_stl
 
-#endif // !TINY_STL__INCLUDE__UTILITY_HPP
+#endif // !TINY_STL__INCLUDE__UTIL_HPP
