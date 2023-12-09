@@ -6,7 +6,13 @@
 
 ```mermaid
 flowchart TD
-type_traits.hpp --> iterator.hpp
+
+iterator[iterator.hpp]
+type_traits[type_traits.hpp]
+utility[utility.hpp]
+
+type_traits --> iterator
+utility --> type_traits
 ```
 
 
@@ -75,3 +81,32 @@ type_traits.hpp --> iterator.hpp
       ```
 3. `template <class T> struct iterator_traits<const T *>`: [为何`value_type`是`T`](https://stackoverflow.com/questions/12819405/why-is-stditerator-traitsvalue-type-non-const-even-for-a-const-iterator)
 4. `template<class Iterator >reference [tiny_stl::reverse_iterator](classtiny__stl_1_1reverse__iterator.html)< Iterator >::operator*()const`: 为何取值操作先自减, 再取值: https://stackoverflow.com/a/74161268/16941344
+
+### `utility.hpp`
+
+1. [C++ 通用引用](https://www.cnblogs.com/ljx-null/p/15940982.html)
+2. [移动语义和完美转发浅析](https://www.cnblogs.com/ljx-null/p/16512384.html)
+
+```c++
+// SFINAE 的第一种形式: 如果匹配成功, 那么第三个模板参数会为 void  
+template <class U1 = T1, class U2 = T2,
+            typename = typename std::enable_if_t<
+                std::is_default_constructible_v<U1> &&
+                    std::is_default_constructible_v<U2>,
+                void>>
+  constexpr pair() : first(), second() {}
+```
+
+```c++
+// SFINAE 的第二种形式: 如果匹配成功, 那么第三个模板参数会被自动赋值为 0
+// 此处为 0 并没有特殊含义, 只是提供一个初始值
+template <
+      class U1 = T1, class U2 = T2,
+      typename std::enable_if_t<std::is_copy_constructible_v<U1> &&
+                                    std::is_copy_constructible_v<U2> &&
+                                    std::is_convertible_v<const U1 &, T1> &&
+                                    std::is_convertible_v<const U2 &, T2>,
+                                int> = 0>
+  constexpr pair(const T1 &a, const T2 &b) : first(a), second(b) {}
+```
+
