@@ -161,8 +161,8 @@ tiny_stl::pair<RandomAccessIter, OutputIter>
 unchecked_copy_n(RandomAccessIter from, Size n, OutputIter to,
                  tiny_stl::random_access_iterator_tag) {
   auto last = from + n;
-  return tiny_stl::pair<RandomAccessIter, OutputIter>(last,
-                                                      copy_n(from, last, to));
+  return tiny_stl::pair<RandomAccessIter, OutputIter>(
+      last, tiny_stl::copy(from, last, to));
 }
 
 template <class InputIter, class Size, class OutputIter>
