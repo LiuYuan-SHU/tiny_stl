@@ -13,7 +13,7 @@
  * - `make_pair`
  */
 #ifndef TINY_STL__INCLUDE__UTILITY_HPP
-#define TINY_STL__INCLUDE__UTIL_HPP
+#define TINY_STL__INCLUDE__UTILITY_HPP
 
 #include "type_traits.hpp"
 
