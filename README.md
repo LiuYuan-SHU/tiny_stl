@@ -10,9 +10,11 @@ flowchart TD
 iterator[iterator.hpp]
 type_traits[type_traits.hpp]
 utility[utility.hpp]
+construct[construct.hpp]
 
 type_traits --> iterator
 utility --> type_traits
+construct --> iterator & type_traits
 ```
 
 
@@ -110,3 +112,12 @@ template <
   constexpr pair(const T1 &a, const T2 &b) : first(a), second(b) {}
 ```
 
+### `construct.hpp`
+
+```mermaid
+flowchart TD
+
+destroy --> destroy_cat & destroy_one
+```
+
+> 根据一个变量是否有析构函数来决定调用的时候要不要调用析构函数
