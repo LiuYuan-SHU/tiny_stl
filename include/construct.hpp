@@ -19,7 +19,7 @@
 #include "type_traits.hpp"
 #include "utility.hpp"
 
-namespace TinySTL {
+namespace tiny_stl {
 
 /**
  * @brief Construct an object with default initialization at the given address.
@@ -121,6 +121,6 @@ template <class ForwardIter> void destroy(ForwardIter first, ForwardIter last) {
           typename tiny_stl::iterator_traits<ForwardIter>::value_type>{});
 }
 
-} // namespace TinySTL
+} // namespace tiny_stl
 
 #endif // !TINY_STL__INCLUDE__CONSTRUCT_HPP

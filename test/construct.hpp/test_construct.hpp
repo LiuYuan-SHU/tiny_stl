@@ -9,7 +9,7 @@
 TEST(Construct, Construct_Inplace_Empty) {
   int *ptr = new int(3);
   EXPECT_EQ(*ptr, 3);
-  TinySTL::construct(ptr);
+  tiny_stl::construct(ptr);
   EXPECT_EQ(*ptr, 0);
   delete ptr;
 }
@@ -17,7 +17,7 @@ TEST(Construct, Construct_Inplace_Empty) {
 TEST(Construct, Construct_Inplace_SingleParam) {
   int *ptr = new int(3);
   EXPECT_EQ(*ptr, 3);
-  TinySTL::construct(ptr, 4);
+  tiny_stl::construct(ptr, 4);
   EXPECT_EQ(*ptr, 4);
   delete ptr;
 }
@@ -31,7 +31,7 @@ TEST(Construct, Construct_Inplace_MultiParam) {
   A *ptr = new A(3, 4);
   EXPECT_EQ(ptr->a, 3);
   EXPECT_EQ(ptr->b, 4);
-  TinySTL::construct(ptr, 5, 6);
+  tiny_stl::construct(ptr, 5, 6);
   EXPECT_EQ(ptr->a, 5);
   EXPECT_EQ(ptr->b, 6);
   delete ptr;
@@ -42,7 +42,7 @@ TEST(Construct, Destroy_One) {
   EXPECT_EQ(*ptr, 3);
   static_assert(std::is_trivially_destructible_v<int>,
                 "type of int is trivial");
-  TinySTL::destroy_one(ptr, std::is_trivially_destructible<int>{});
+  tiny_stl::destroy_one(ptr, std::is_trivially_destructible<int>{});
   EXPECT_EQ(*ptr, 3);
   delete ptr;
 }
@@ -59,7 +59,7 @@ TEST(Construct, Destroy_One_NonTrivial) {
   EXPECT_EQ(ptr->b, 4);
   static_assert(!std::is_trivially_destructible_v<A>,
                 "type of A is not trivial");
-  TinySTL::destroy_one(ptr, std::is_trivially_destructible<A>{});
+  tiny_stl::destroy_one(ptr, std::is_trivially_destructible<A>{});
   EXPECT_EQ(ptr->a, 0);
   EXPECT_EQ(ptr->b, 0);
   delete ptr;
@@ -72,7 +72,7 @@ TEST(Construct, Destroy_Cat) {
   EXPECT_EQ(ptr[2], 3);
   static_assert(std::is_trivially_destructible_v<int>,
                 "type of int is trivial");
-  TinySTL::destroy_cat(ptr, ptr + 3, std::is_trivially_destructible<int>{});
+  tiny_stl::destroy_cat(ptr, ptr + 3, std::is_trivially_destructible<int>{});
   EXPECT_EQ(ptr[0], 1);
   EXPECT_EQ(ptr[1], 2);
   EXPECT_EQ(ptr[2], 3);
@@ -95,7 +95,7 @@ TEST(Construct, Destroy_Cat_NonTrivial) {
   EXPECT_EQ(ptr[2].b, 6);
   static_assert(!std::is_trivially_destructible_v<A>,
                 "type of A is not trivial");
-  TinySTL::destroy_cat(ptr, ptr + 3, std::is_trivially_destructible<A>{});
+  tiny_stl::destroy_cat(ptr, ptr + 3, std::is_trivially_destructible<A>{});
   EXPECT_EQ(ptr[0].a, 0);
   EXPECT_EQ(ptr[0].b, 0);
   EXPECT_EQ(ptr[1].a, 0);
@@ -112,7 +112,7 @@ TEST(Construct, Destroy_Trailing) {
   EXPECT_EQ(ptr[2], 3);
   static_assert(std::is_trivially_destructible_v<int>,
                 "type of int is trivial");
-  TinySTL::destroy(ptr, ptr + 3);
+  tiny_stl::destroy(ptr, ptr + 3);
   EXPECT_EQ(ptr[0], 1);
   EXPECT_EQ(ptr[1], 2);
   EXPECT_EQ(ptr[2], 3);
@@ -135,7 +135,7 @@ TEST(Construct, Destroy_NonTrailing) {
   EXPECT_EQ(ptr[2].b, 6);
   static_assert(!std::is_trivially_destructible_v<A>,
                 "type of A is not trivial");
-  TinySTL::destroy(ptr, ptr + 3);
+  tiny_stl::destroy(ptr, ptr + 3);
   EXPECT_EQ(ptr[0].a, 0);
   EXPECT_EQ(ptr[0].b, 0);
   EXPECT_EQ(ptr[1].a, 0);

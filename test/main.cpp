@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "algobase.hpp/test_algobase.hpp"
+#include "allocator.hpp"
 #include "construct.hpp/test_construct.hpp"
 #include "iterator.hpp/test_iterator.hpp"
 #include "type_traits.hpp/test_type_traits.hpp"
