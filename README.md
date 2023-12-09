@@ -11,10 +11,12 @@ iterator[iterator.hpp]
 type_traits[type_traits.hpp]
 utility[utility.hpp]
 construct[construct.hpp]
+algobase[algobase.hpp]
 
 type_traits --> iterator
 utility --> type_traits
 construct --> iterator & type_traits
+algobase --> utility & iterator
 ```
 
 
@@ -116,8 +118,68 @@ template <
 
 ```mermaid
 flowchart TD
-
+****
 destroy --> destroy_cat & destroy_one
 ```
 
 > 根据一个变量是否有析构函数来决定调用的时候要不要调用析构函数: `std::is_trivially_destructible`
+
+### `algobase.hpp`
+
+> 函数命名中的`cat`的含义为`category`, 该函数命名意味着调用这个函数的通常是带着确定类型迭代器类型的迭代器
+
+#### `copy`
+
+```mermaid
+flowchart TD;
+copy --> unchecked_copy -->unchecked_copy_cat --> input_iterator_tag & random_access_iterator_tag
+unchecked_copy --triavially_copy_constructible--> memmove
+```
+
+#### `copy_backward`
+
+```mermaid
+flowchart TD;
+copy_backward --> unchecked_copy_backward --> unchecked_copy_backward_cat --> bidirectional_iterator_tag & random_access_iterator_tag
+unchecked_copy_backward --triavially_copy_constructible--> memmove
+```
+
+#### `copy_n`
+
+```mermaid
+flowchart TD;
+copy_n --> unchecked_copy_n --input_iterator_tag--> 常规实现
+unchecked_copy_n --random_access_iterator_tag--> copy
+```
+
+#### `move`
+
+```mermaid
+flowchart TD;
+move --> unchecked_move  --> unchecked_move_cat --> input_iterator_tag & random_access_iterator_tag
+unchecked_move --triavially_move_assignable--> memmove
+```
+
+#### `move_backward`
+
+```mermaid
+flowchart TD;
+move_backward --> unchecked_move_backward --> unchecked_move_backward_cat --> bidirectional_iterator_tag & random_access_iterator_tag
+unchecked_move_backward --trivially_move_assignable--> memmove
+```
+
+#### `fill_n`
+
+```mermaid
+flowchart TD;
+fill_n --> unchecked_fill_n --字面常量且大小为1--> memset
+```
+
+#### `fill`
+
+```mermaid
+flowchart TD;
+fill --> fill_cat --random_access_iterator_tag--> fill_n 
+fill_cat --forward_iterator_tag--> 常规实现 
+```
+
