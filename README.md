@@ -2,6 +2,8 @@
 
 > A subset of STL, implemented in C++17, CMake, XMake, GTest and Doxygen
 
+[TOC]
+
 ## 代码实现顺序 & 笔记
 
 ```mermaid
@@ -12,14 +14,14 @@ type_traits[type_traits.hpp]
 utility[utility.hpp]
 construct[construct.hpp]
 algobase[algobase.hpp]
+allocator[allocator.hpp]
 
 type_traits --> iterator
 utility --> type_traits
 construct --> iterator & type_traits
 algobase --> utility & iterator
+allocator --> construct & utility
 ```
-
-
 
 ### [`type_traits.hpp`](./include/type_traits.hpp)
 
