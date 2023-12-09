@@ -1,5 +1,5 @@
-#ifndef TINY_STL__TEST__CONSTRUCT_HPP
-#define TINY_STL__TEST__CONSTRUCT_HPP
+#ifndef TINY_STL__TEST__TEST_CONSTRUCT_HPP
+#define TINY_STL__TEST__TEST_CONSTRUCT_HPP
 
 #include "construct.hpp"
 
@@ -145,4 +145,4 @@ TEST(Construct, Destroy_NonTrailing) {
   delete[] ptr;
 }
 
-#endif // TINY_STL__TEST__CONSTRUCT_HPP
+#endif // TINY_STL__TEST__TEST_CONSTRUCT_HPP

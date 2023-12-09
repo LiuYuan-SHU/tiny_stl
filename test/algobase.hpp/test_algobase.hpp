@@ -1,5 +1,5 @@
-#ifndef TINY_STL__TEST__ALGOBASE_HPP
-#define TINY_STL__TEST__ALGOBASE_HPP
+#ifndef TINY_STL__TEST__TEST_ALGOBASE_HPP
+#define TINY_STL__TEST__TEST_ALGOBASE_HPP
 
 #include "algobase.hpp"
 
@@ -296,4 +296,4 @@ TEST(Algobase, Mismatch) {
   EXPECT_EQ(tiny_stl::mismatch(arr3, arr3 + 5, arr4).second, arr4 + 4);
 }
 
-#endif // ! TINY_STL__TEST__ALGOBASE_HPP
+#endif // ! TINY_STL__TEST__TEST_ALGOBASE_HPP
