@@ -120,4 +120,4 @@ flowchart TD
 destroy --> destroy_cat & destroy_one
 ```
 
-> 根据一个变量是否有析构函数来决定调用的时候要不要调用析构函数
+> 根据一个变量是否有析构函数来决定调用的时候要不要调用析构函数: `std::is_trivially_destructible`
