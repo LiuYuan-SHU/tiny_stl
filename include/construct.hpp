@@ -2,8 +2,6 @@
 #define TINY_STL__INCLUDE__CONSTRUCT_HPP
 
 #include <new>
-#include <type_traits>
-// #include <type_traits>
 
 #include "iterator.hpp"
 #include "type_traits.hpp"
@@ -32,15 +30,15 @@ template <class T> void destroy_one(T *ptr, std::false_type) {
 template <class ForwardIter>
 void destroy_cat(ForwardIter, ForwardIter, std::true_type) {}
 
+template <class T> void destroy(T *ptr) {
+  destroy_one(ptr, std::is_trivially_destructible<T>{});
+}
+
 template <class ForwardIter>
 void destroy_cat(ForwardIter first, ForwardIter last, std::false_type) {
   for (; first != last; ++first) {
-    destroy_one(&(*first));
+    destroy(&(*first));
   }
-}
-
-template <class T> void destroy(T *ptr) {
-  destroy_one(ptr, std::is_trivially_destructible<T>{});
 }
 
 template <class ForwardIter> void destroy(ForwardIter first, ForwardIter last) {
