@@ -8,9 +8,6 @@ set_defaultmode("debug")
 
 -- compile_commands.json
 add_rules("plugin.compile_commands.autoupdate", {outputdir = "$(buildir)"})
-if os.isdir(".vscode") then -- for vscode
-  add_rules("plugin.compile_commands.autoupdate", {outputdir = ".vscode"})
-end
 
 -- if mode is debug, enable debug symbols
 add_rules("mode.debug")
