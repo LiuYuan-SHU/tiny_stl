@@ -1,5 +1,5 @@
-#ifndef TINY_STL__INCLUDE__UTIL_HPP
-#define TINY_STL__INCLUDE__UTIL_HPP
+#ifndef TINY_STL__INCLUDE__UTILITY_HPP
+#define TINY_STL__INCLUDE__UTILITY_HPP
 
 #include "type_traits.hpp"
 
@@ -224,4 +224,4 @@ template <class T1, class T2> pair<T1, T2> make_pair(T1 &&first, T2 &&second) {
 
 } // namespace tiny_stl
 
-#endif // !TINY_STL__INCLUDE__UTIL_HPP
+#endif // !TINY_STL__INCLUDE__UTILITY_HPP
