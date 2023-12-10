@@ -64,7 +64,7 @@ public:
 
 private:
   void allocate_buffer();
-  void initialize_buffer(const T &, std::true_type);
+  void initialize_buffer(const T &, std::true_type) {}
   void initialize_buffer(const T &value, std::false_type) {
     tiny_stl::uninitialized_fill_n(buffer, len, value);
   }
@@ -81,7 +81,7 @@ temporary_buffer<ForwardIter, T>::temporary_buffer(ForwardIter first,
     len = tiny_stl::distance(first, last);
     allocate_buffer();
     if (len > 0) {
-      initialize_buffer(*first, std::is_trivially_default_constructible_v<T>);
+      initialize_buffer(*first, std::is_trivially_default_constructible<T>{});
     }
   } catch (...) {
     free(buffer);

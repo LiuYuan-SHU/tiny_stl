@@ -4,9 +4,10 @@
 #include "allocator.hpp"
 #include "construct.hpp/test_construct.hpp"
 #include "iterator.hpp/test_iterator.hpp"
+#include "memory.hpp/test_memory.hpp"
 #include "type_traits.hpp/test_type_traits.hpp"
-#include "utility.hpp/test_utility.hpp"
 #include "uninitialized.hpp/test_uninitialized.hpp"
+#include "utility.hpp/test_utility.hpp"
 
 int main(int arc, char *argv[]) {
   testing::InitGoogleTest(&arc, argv);
