@@ -119,6 +119,63 @@ void pop_heap(RandomAccessIter first, RandomAccessIter last, Compare compare) {
                          distance_type(first), compare);
 }
 
+template <class RandomAccessIter>
+void sort_heap(RandomAccessIter first, RandomAccessIter last) {
+  while (last - first > 1) {
+    tiny_stl::pop_heap(first, last--);
+  }
+}
+
+template <class RandomAccessIter, class Compare>
+void sort_heap(RandomAccessIter first, RandomAccessIter last, Compare compare) {
+  while (last - first > 1) {
+    tiny_stl::pop_heap(first, last--, compare);
+  }
+}
+
+template <class RandomAccessIter, class Distance>
+void make_heap_aux(RandomAccessIter first, RandomAccessIter last, Distance *) {
+  if (last - first < 2) {
+    return;
+  }
+  auto len = last - first;
+  auto holeIndex = (len - 2) / 2;
+  while (true) {
+    tiny_stl::adjust_heap(first, holeIndex, len, *(first + holeIndex));
+    if (holeIndex == 0) {
+      return;
+    }
+    holeIndex--;
+  }
+}
+
+template <class RandomAccessIter>
+void make_heap(RandomAccessIter first, RandomAccessIter last) {
+  tiny_stl::make_heap_aux(first, last, distance_type(first));
+}
+
+template <class RandomAccessIter, class Distance, class Compare>
+void make_heap_aux(RandomAccessIter first, RandomAccessIter last, Distance *,
+                   Compare compare) {
+  if (last - first < 2) {
+    return;
+  }
+  auto len = last - first;
+  auto holeIndex = (len - 2) / 2;
+  while (true) {
+    tiny_stl::adjust_heap(first, holeIndex, len, *(first + holeIndex), compare);
+    if (holeIndex == 0) {
+      return;
+    }
+    holeIndex--;
+  }
+}
+
+template <class RandomAccessIter, class Compare>
+void make_heap(RandomAccessIter first, RandomAccessIter last, Compare compare) {
+  tiny_stl::make_heap_aux(first, last, distance_type(first), compare);
+}
+
 } // namespace tiny_stl
 
 #endif // !TINY_STL__INCLUDE__HEAP_ALGO_HPP
