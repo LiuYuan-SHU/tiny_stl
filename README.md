@@ -152,6 +152,7 @@ unchecked_copy_backward --triavially_copy_constructible--> memmove
 flowchart TD;
 copy_n --> unchecked_copy_n --input_iterator_tag--> 常规实现
 unchecked_copy_n --random_access_iterator_tag--> copy
+copy --> unchecked_copy -->unchecked_copy_cat --> random_access_iterator_tag
 ```
 
 #### `move`
