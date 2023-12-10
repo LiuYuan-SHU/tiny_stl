@@ -9,13 +9,19 @@
 ```mermaid
 flowchart TD
 
-iterator[iterator.hpp]
-type_traits[type_traits.hpp]
-utility[utility.hpp]
-construct[construct.hpp]
-algobase[algobase.hpp]
-allocator[allocator.hpp]
-uninitialized[uninitialized.hpp]
+subgraph v0.1.x
+  iterator[iterator.hpp]
+  type_traits[type_traits.hpp]
+  utility[utility.hpp]
+end
+
+subgraph v0.2.x
+  construct[construct.hpp]
+  algobase[algobase.hpp]
+  allocator[allocator.hpp]
+  uninitialized[uninitialized.hpp]
+  memory[memory.hpp]
+end
 
 type_traits --> iterator
 utility --> type_traits
@@ -23,6 +29,7 @@ construct --> iterator & type_traits
 algobase --> utility & iterator
 allocator --> construct & utility
 uninitialized --> algobase & construct & iterator & utility
+memory --> construct & iterator & uninitialized & utility
 ```
 
 ### [`type_traits.hpp`](./include/type_traits.hpp)
