@@ -15,12 +15,14 @@ utility[utility.hpp]
 construct[construct.hpp]
 algobase[algobase.hpp]
 allocator[allocator.hpp]
+uninitialized[uninitialized.hpp]
 
 type_traits --> iterator
 utility --> type_traits
 construct --> iterator & type_traits
 algobase --> utility & iterator
 allocator --> construct & utility
+uninitialized --> algobase & construct & iterator & utility
 ```
 
 ### [`type_traits.hpp`](./include/type_traits.hpp)
@@ -186,3 +188,9 @@ fill --> fill_cat --random_access_iterator_tag--> fill_n
 fill_cat --forward_iterator_tag--> 常规实现 
 ```
 
+### `uninitialized.hpp`
+
+> 在未初始化的内存上操作数据
+
+- 对于可以直接拷贝的数据(`std::is_trivially_copy_assignable`), 直接复制, 并且再根据迭代器的类型是`input_iterator_tag`还是`random_access_iterator_tag` 来决定调用的具体函数
+- 对于不可以直接拷贝的数据, 则直接在对应的内存空间上调用`construct`来构造对象
