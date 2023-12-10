@@ -379,7 +379,7 @@ iterator_category(const Iter &) {
  */
 template <class Iter>
 typename iterator_traits<Iter>::difference_type *distance_type(const Iter &) {
-  using Distance = typename iterator_traits<Iter>::distance_type *;
+  using Distance = typename iterator_traits<Iter>::difference_type *;
   return Distance(0);
 }
 
