@@ -2,7 +2,7 @@ set_project("Tiny STL")
 
 -- project settings
 set_languages("c++17")
-set_version("0.1.0", {build = "%Y%m%d%H%M", soname = true})
+set_version("0.2.3", {build = "%Y%m%d%H%M", soname = true})
 set_allowedmodes("debug", "fastest")
 set_defaultmode("debug")
 
