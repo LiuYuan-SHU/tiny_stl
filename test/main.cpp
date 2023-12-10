@@ -6,6 +6,7 @@
 #include "iterator.hpp/test_iterator.hpp"
 #include "type_traits.hpp/test_type_traits.hpp"
 #include "utility.hpp/test_utility.hpp"
+#include "uninitialized.hpp/test_uninitialized.hpp"
 
 int main(int arc, char *argv[]) {
   testing::InitGoogleTest(&arc, argv);
