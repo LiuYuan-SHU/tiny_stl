@@ -13,6 +13,7 @@ subgraph v0.1.x
   iterator[iterator.hpp]
   type_traits[type_traits.hpp]
   utility[utility.hpp]
+  functional[functional.hpp]
 end
 
 subgraph v0.2.x
@@ -209,3 +210,7 @@ flowchart TD;
 uninitialized_copy --trivially_copy_constructible--> copy
 uninitialized_copy --non_trivially_copy_constructible--> constrcut
 ```
+### `functional.hpp`
+
+1. 关于模板参数的讨论: https://github.com/Alinshans/MyTinySTL/issues/141
+2. FNV-1a: https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function#FNV-1a_hash
