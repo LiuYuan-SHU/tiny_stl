@@ -21,6 +21,7 @@ subgraph v0.2.x
   allocator[allocator.hpp]
   uninitialized[uninitialized.hpp]
   memory[memory.hpp]
+  heap_algo[heap_algo.hpp]
 end
 
 type_traits --> iterator
@@ -30,6 +31,7 @@ algobase --> utility & iterator
 allocator --> construct & utility
 uninitialized --> algobase & construct & iterator & utility
 memory --> construct & iterator & uninitialized & utility
+heap_algo --> iterator
 ```
 
 ### [`type_traits.hpp`](./include/type_traits.hpp)
@@ -144,7 +146,7 @@ destroy --> destroy_cat & destroy_one
 ```mermaid
 flowchart TD;
 copy --> unchecked_copy -->unchecked_copy_cat --> input_iterator_tag & random_access_iterator_tag
-unchecked_copy --triavially_copy_constructible--> memmove
+unchecked_copy --trivially_copy_constructible--> memmove
 ```
 
 #### `copy_backward`
@@ -152,7 +154,7 @@ unchecked_copy --triavially_copy_constructible--> memmove
 ```mermaid
 flowchart TD;
 copy_backward --> unchecked_copy_backward --> unchecked_copy_backward_cat --> bidirectional_iterator_tag & random_access_iterator_tag
-unchecked_copy_backward --triavially_copy_constructible--> memmove
+unchecked_copy_backward --trivially_copy_constructible--> memmove
 ```
 
 #### `copy_n`
@@ -169,7 +171,7 @@ copy --> unchecked_copy -->unchecked_copy_cat --> random_access_iterator_tag
 ```mermaid
 flowchart TD;
 move --> unchecked_move  --> unchecked_move_cat --> input_iterator_tag & random_access_iterator_tag
-unchecked_move --triavially_move_assignable--> memmove
+unchecked_move --trivially_move_assignable--> memmove
 ```
 
 #### `move_backward`
@@ -204,6 +206,6 @@ fill_cat --forward_iterator_tag--> 常规实现
 
 ```mermaid
 flowchart TD;
-uninitialized_copy --triavially_copy_constructible--> copy
-uninitialized_copy --non_triavially_copy_constructible--> constrcut
+uninitialized_copy --trivially_copy_constructible--> copy
+uninitialized_copy --non_trivially_copy_constructible--> constrcut
 ```
