@@ -303,44 +303,44 @@ template <class Ptr> struct hash<Ptr *> {
  * The following code handles other built-in types, which just return the value
  * of the argument as the hash value.
  */
-#define MYSTL_TRIVIAL_HASH_FCN(Type)                                           \
+#define TINY_STL__TRIVIAL_HASH_FCN(Type)                                       \
   template <> struct hash<Type> {                                              \
     size_t operator()(Type val) const noexcept {                               \
       return static_cast<size_t>(val);                                         \
     }                                                                          \
   };
 
-MYSTL_TRIVIAL_HASH_FCN(bool)
+TINY_STL__TRIVIAL_HASH_FCN(bool)
 
-MYSTL_TRIVIAL_HASH_FCN(char)
+TINY_STL__TRIVIAL_HASH_FCN(char)
 
-MYSTL_TRIVIAL_HASH_FCN(signed char)
+TINY_STL__TRIVIAL_HASH_FCN(signed char)
 
-MYSTL_TRIVIAL_HASH_FCN(unsigned char)
+TINY_STL__TRIVIAL_HASH_FCN(unsigned char)
 
-MYSTL_TRIVIAL_HASH_FCN(wchar_t)
+TINY_STL__TRIVIAL_HASH_FCN(wchar_t)
 
-MYSTL_TRIVIAL_HASH_FCN(char16_t)
+TINY_STL__TRIVIAL_HASH_FCN(char16_t)
 
-MYSTL_TRIVIAL_HASH_FCN(char32_t)
+TINY_STL__TRIVIAL_HASH_FCN(char32_t)
 
-MYSTL_TRIVIAL_HASH_FCN(short)
+TINY_STL__TRIVIAL_HASH_FCN(short)
 
-MYSTL_TRIVIAL_HASH_FCN(unsigned short)
+TINY_STL__TRIVIAL_HASH_FCN(unsigned short)
 
-MYSTL_TRIVIAL_HASH_FCN(int)
+TINY_STL__TRIVIAL_HASH_FCN(int)
 
-MYSTL_TRIVIAL_HASH_FCN(unsigned int)
+TINY_STL__TRIVIAL_HASH_FCN(unsigned int)
 
-MYSTL_TRIVIAL_HASH_FCN(long)
+TINY_STL__TRIVIAL_HASH_FCN(long)
 
-MYSTL_TRIVIAL_HASH_FCN(unsigned long)
+TINY_STL__TRIVIAL_HASH_FCN(unsigned long)
 
-MYSTL_TRIVIAL_HASH_FCN(long long)
+TINY_STL__TRIVIAL_HASH_FCN(long long)
 
-MYSTL_TRIVIAL_HASH_FCN(unsigned long long)
+TINY_STL__TRIVIAL_HASH_FCN(unsigned long long)
 
-#undef MYSTL_TRIVIAL_HASH_FCN
+#undef TINY_STL__TRIVIAL_HASH_FCN
 
 /**
  * @brief The helper function for hashing floating-point numbers.

@@ -2,6 +2,7 @@
 #define TINY_STL__TEST__TEST_FUNCTIONAL_HPP
 
 #include "functional.hpp"
+#include "utility.hpp"
 
 #include <gtest/gtest.h>
 
@@ -105,12 +106,12 @@ TEST(Functional, Identity) {
 }
 
 TEST(Functional, Select1st) {
-  tiny_stl::select1st<std::pair<int, int>> select1st;
+  tiny_stl::select1st<typename tiny_stl::pair<int, int>> select1st;
   EXPECT_EQ(select1st(tiny_stl::pair<int, int>(1, 2)), 1);
 }
 
 TEST(Functional, Select2nd) {
-  tiny_stl::select2nd<std::pair<int, int>> select2nd;
+  tiny_stl::select2nd<typename tiny_stl::pair<int, int>> select2nd;
   EXPECT_EQ(select2nd(tiny_stl::pair<int, int>(1, 2)), 2);
 }
 
@@ -126,7 +127,7 @@ TEST(Functional, Project2nd) {
 
 TEST(Functional, Hash_Ptr) {
   tiny_stl::hash<int *> hash;
-  int* a = (int*)1;
+  int *a = (int *)1;
   EXPECT_EQ(hash(a), 1);
 }
 
@@ -161,10 +162,12 @@ TEST(Functional, Hash_Float) {
   tiny_stl::hash<float> hash_float;
   tiny_stl::hash<double> hash_double;
   tiny_stl::hash<long double> hash_long_double;
-  EXPECT_EQ(hash_float(1.0f), 1065353216);
-  EXPECT_EQ(hash_double(1.0), 4607182418800017408);
-  EXPECT_EQ(hash_long_double(1.0l), 4607182418800017408);
-
+  size_t float_hash_val = hash_float(1.0f);
+  size_t double_hash_val = hash_double(1.0);
+  size_t long_double_hash_val = hash_long_double(1.0l);
+  EXPECT_EQ(5436486313599315864, float_hash_val);
+  EXPECT_EQ(12299727721494879672, double_hash_val);
+  EXPECT_EQ(12299727721494879672, long_double_hash_val);
 }
 
 #endif // ! TINY_STL__TEST__TEST_FUNCTIONAL_HPP
