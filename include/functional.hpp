@@ -86,26 +86,26 @@ template <class T> struct identity : public unarg_function<T, bool> {
 };
 
 template <class Pair>
-struct selectfirst : public unarg_function<Pair, typename Pair::first_type> {
+struct select1st : public unarg_function<Pair, typename Pair::first_type> {
   const typename Pair::first_type &operator()(const Pair &x) const {
     return x.first;
   }
 };
 
 template <class Pair>
-struct selectsecond : public unarg_function<Pair, typename Pair::second_type> {
+struct select2nd : public unarg_function<Pair, typename Pair::second_type> {
   const typename Pair::second_type &operator()(const Pair &x) const {
     return x.second;
   }
 };
 
 template <class Arg1, class Arg2>
-struct projectfirst : public binary_function<Arg1, Arg2, Arg1> {
+struct project1st : public binary_function<Arg1, Arg2, Arg1> {
   Arg1 operator()(const Arg1 &x, const Arg2 &) const { return x; }
 };
 
 template <class Arg1, class Arg2>
-struct projectsecond : public binary_function<Arg1, Arg2, Arg1> {
+struct project2nd : public binary_function<Arg1, Arg2, Arg1> {
   Arg2 operator()(const Arg1 &, const Arg2 &y) const { return y; }
 };
 
