@@ -44,7 +44,7 @@ xmake run doc
 ```shell
 cmake -B build && cd build
 # test
-make build && ./test/test   # 可执行文件会位于: project_dir/build/test
+make build && ./test/test   # 可执行文件位于: project_dir/build/test
 # doc
 make doc                    # 网页文件位于: project_dir/build/doc/html/index.html
 ```
@@ -52,7 +52,7 @@ make doc                    # 网页文件位于: project_dir/build/doc/html/ind
 ## 项目结构
 
 ```
-.
+tiny_stl
 ├── CMakeLists.txt      # CMake 顶层文件
 ├── LICENSE             # MIT 许可
 ├── README.md           # 本文件
@@ -65,7 +65,7 @@ make doc                    # 网页文件位于: project_dir/build/doc/html/ind
 │   ├── CMakeLists.txt      # CMake 配置文件
 │   ├── algo.hpp            # 诸如此类的文件夹都是测试文件
 │   ├── main.cpp            # 测试入口
-│   └── xmake.lua           # CMake 配置文件
+│   └── xmake.lua           # XMake 配置文件
 └── xmake.lua           # 顶层 XMake 配置文件
 ```
 
