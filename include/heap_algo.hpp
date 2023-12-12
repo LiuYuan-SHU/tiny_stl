@@ -168,11 +168,13 @@ void push_heap(RandomAccessIter first, RandomAccessIter last, Compare compare) {
  * and then percolate up the elements which are swapped when percolating down.
  * The percolating down process is like this:
  * @code{.cpp}
- * int example[] = {6, 3, 5, 1, 2, 4, 7}; // At first, the hole is at index 0,
- * `6` has children `3` and `5`. int example[] = {5, 3, 5, 1, 2, 4, 7}; // `5`
- * is greater than `3`, so assign `5` to the hole. Now hole is at index 2, has
- * child `4` int example[] = {5, 3, 4, 1, 2, 4, 7}; // Assign the only child to
- * the hole. Now hole is at index 4, has no child.
+ * // At first, the hole is at index 0, `6` has children `3` and `5`.
+ * int example[] = {6, 3, 5, 1, 2, 4, 7};
+ * // `5` is greater than `3`, so assign `5` to the hole.
+ * // Now hole is at index 2, has child `4`
+ * int example[] = {5, 3, 5, 1, 2, 4, 7};
+ * // Assign the only child to the hole. Now hole is at index 4, has no child.
+ * int example[] = {5, 3, 4, 1, 2, 4, 7};
  * @endcode
  * After this, delete is finished. Now we need to re-push the element `6` into
  * the heap, which is the reason why we call `heap_push_aux`.
