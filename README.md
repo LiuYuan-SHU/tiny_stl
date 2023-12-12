@@ -25,6 +25,10 @@ subgraph v0.2.x
   heap_algo[heap_algo.hpp]
 end
 
+subgraph v0.3.x
+  algo[algo.hpp]
+end
+
 type_traits --> iterator
 utility --> type_traits
 construct --> iterator & type_traits
@@ -33,6 +37,7 @@ allocator --> construct & utility
 uninitialized --> algobase & construct & iterator & utility
 memory --> construct & iterator & uninitialized & utility
 heap_algo --> iterator
+algo --> algobase & functional & heap_algo & iterator & memory
 ```
 
 ### [`type_traits.hpp`](./include/type_traits.hpp)
