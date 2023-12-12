@@ -10,6 +10,7 @@
 #include "utility.hpp/test_utility.hpp"
 #include "heap_algo.hpp/test_heap_algo.hpp"
 #include "functional.hpp/test_functional.hpp"
+#include "algo.hpp/test_algo.hpp"
 
 int main(int arc, char *argv[]) {
   testing::InitGoogleTest(&arc, argv);

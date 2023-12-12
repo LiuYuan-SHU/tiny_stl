@@ -8,37 +8,35 @@
 #include <string>
 #include <vector>
 
-using std::string;
-using std::vector;
 
 TEST(Test_Utility, Move) {
-  vector<int> vec = {1, 2, 3, 4, 5};
-  vector<int> vec2 = tiny_stl::move(vec);
+  std::vector<int> vec = {1, 2, 3, 4, 5};
+  std::vector<int> vec2 = tiny_stl::move(vec);
   EXPECT_EQ(vec.size(), 0);
   EXPECT_EQ(vec2.size(), 5);
 }
 
 TEST(Test_Utility, Forward) {
-  vector<int> vec = {1, 3, 2, 5, 4};
-  vector<int> vec2 = tiny_stl::forward<vector<int>>(vec);
+  std::vector<int> vec = {1, 3, 2, 5, 4};
+  std::vector<int> vec2 = tiny_stl::forward<std::vector<int>>(vec);
   sort(vec2.begin(), vec2.end());
   EXPECT_FALSE(vec == vec2);
 }
 
 TEST(Test_Utility, Swap) {
-  vector<int> vec = {1, 2, 3, 4, 5};
-  vector<int> vec2 = {5, 4, 3, 2, 1};
+  std::vector<int> vec = {1, 2, 3, 4, 5};
+  std::vector<int> vec2 = {5, 4, 3, 2, 1};
   tiny_stl::swap(vec, vec2);
-  EXPECT_EQ(vec, vector<int>({5, 4, 3, 2, 1}));
-  EXPECT_EQ(vec2, vector<int>({1, 2, 3, 4, 5}));
+  EXPECT_EQ(vec, std::vector<int>({5, 4, 3, 2, 1}));
+  EXPECT_EQ(vec2, std::vector<int>({1, 2, 3, 4, 5}));
 }
 
 TEST(Test_Utility, SwapRange) {
-  vector<int> vec = {1, 2, 3, 4, 5};
-  vector<int> vec2 = {5, 4, 3, 2, 1};
+  std::vector<int> vec = {1, 2, 3, 4, 5};
+  std::vector<int> vec2 = {5, 4, 3, 2, 1};
   tiny_stl::swap_range(vec.begin(), vec.begin() + 3, vec2.begin());
-  EXPECT_EQ(vec, vector<int>({5, 4, 3, 4, 5}));
-  EXPECT_EQ(vec2, vector<int>({1, 2, 3, 2, 1}));
+  EXPECT_EQ(vec, std::vector<int>({5, 4, 3, 4, 5}));
+  EXPECT_EQ(vec2, std::vector<int>({1, 2, 3, 2, 1}));
 }
 
 TEST(Test_Utility, SwapArray) {

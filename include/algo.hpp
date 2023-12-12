@@ -315,7 +315,7 @@ InputIter find_first_of(InputIter first1, InputIter last1, ForwardIter first2,
   for (; first1 != last1; ++first1) {
     for (auto iter = first2; iter != last2; ++iter) {
       if (*first1 == *iter) {
-        return iter;
+        return first1;
       }
     }
   }
@@ -410,6 +410,7 @@ RandomAccessIter lbound_dispatch(RandomAccessIter first, RandomAccessIter last,
       len = half;
     }
   }
+  return first;
 }
 
 template <class ForwardIter, class T>
@@ -844,7 +845,7 @@ ForwardIter max_element(ForwardIter first, ForwardIter last, Compared comp) {
 }
 
 template <class ForwardIter>
-ForwardIter min_elememt(ForwardIter first, ForwardIter last) {
+ForwardIter min_element(ForwardIter first, ForwardIter last) {
   if (first == last)
     return first;
   auto result = first;
@@ -856,7 +857,7 @@ ForwardIter min_elememt(ForwardIter first, ForwardIter last) {
 }
 
 template <class ForwardIter, class Compare>
-ForwardIter min_elememt(ForwardIter first, ForwardIter last, Compare compare) {
+ForwardIter min_element(ForwardIter first, ForwardIter last, Compare compare) {
   if (first == last)
     return first;
   auto result = first;
