@@ -2,6 +2,73 @@
 
 > A subset of STL, implemented in C++17, CMake, XMake, GTest and Doxygen
 
+## Quick Start
+
+### 安装C++环境
+
+### 安装 XMake/CMake
+
+> 更推荐 XMake
+
+1. XMake: https://github.com/xmake-io/xmake
+2. CMake: https://cmake.org/download/
+
+### 安装 GTest
+
+1. 使用 Xrepo
+   ```shell
+   xrepo install -m debug gtest
+   ```
+   如果使用 xrepo 安装,xmake 会自行进行调度. 不推荐使用 xrepo 与 cmake 混用, 配置上会带来一定的麻烦
+2. 使用包管理器直接安装: 更推荐在 Linux 环境下进行这样的操作
+
+### 安装 Doxygen(文档生成)
+
+1. xrepo
+2. 包管理器
+
+### 运行
+
+#### XMake
+
+```shell
+xmake
+# 运行测试
+xmake run test
+# 生成文档
+xmake run doc
+```
+
+#### CMake
+
+```shell
+cmake -B build && cd build
+# test
+make build && ./test/test   # 可执行文件会位于: project_dir/build/test
+# doc
+make doc                    # 网页文件位于: project_dir/build/doc/html/index.html
+```
+
+## 项目结构
+
+```
+.
+├── CMakeLists.txt      # CMake 顶层文件
+├── LICENSE             # MIT 许可
+├── README.md           # 本文件
+├── doc                 # 文档      
+│   ├── CMakeLists.txt      # CMake 配置文件
+│   ├── Doxyfile.in         # Doxygen 配置文件模板文件
+│   └── xmake.lua           # XMake 配置文件
+├── include             # 头文件
+├── test                # 测试
+│   ├── CMakeLists.txt      # CMake 配置文件
+│   ├── algo.hpp            # 诸如此类的文件夹都是测试文件
+│   ├── main.cpp            # 测试入口
+│   └── xmake.lua           # CMake 配置文件
+└── xmake.lua           # 顶层 XMake 配置文件
+```
+
 [TOC]
 
 ## 代码实现顺序 & 笔记
