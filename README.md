@@ -14,7 +14,7 @@ XMake 生成项目:
 
 <img src="README.assets/image-20231212130350849.png" alt="image-20231212130350849" style="zoom: 25%;" />
 
-
+<img src="README.assets/image-20231212131007855.png" alt="image-20231212131007855" style="zoom:25%;" />
 
 ## Quick Start
 
@@ -218,7 +218,6 @@ template <
 
 ```mermaid
 flowchart TD
-****
 destroy --> destroy_cat & destroy_one
 ```
 
