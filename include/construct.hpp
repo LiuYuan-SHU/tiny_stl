@@ -16,7 +16,6 @@
 #include <new>
 
 #include "iterator.hpp"
-#include "type_traits.hpp"
 #include "utility.hpp"
 
 namespace tiny_stl {

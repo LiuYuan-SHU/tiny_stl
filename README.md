@@ -112,7 +112,7 @@ end
 
 type_traits --> iterator
 utility --> type_traits
-construct --> iterator & type_traits
+construct --> iterator & utility 
 algobase --> utility & iterator
 allocator --> construct & utility
 uninitialized --> algobase & construct & iterator & utility
