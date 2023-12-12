@@ -2,6 +2,20 @@
 
 > A subset of STL, implemented in C++17, CMake, XMake, GTest and Doxygen
 
+XMake 生成项目:
+
+<img src="README.assets/image-20231212130055137.png" alt="image-20231212130055137" style="zoom:50%;" />
+
+运行测试:
+
+<img src="README.assets/image-20231212130249544.png" alt="image-20231212130249544" style="zoom:50%;" />
+
+生成文档:
+
+<img src="README.assets/image-20231212130350849.png" alt="image-20231212130350849" style="zoom: 25%;" />
+
+
+
 ## Quick Start
 
 ### 安装C++环境
