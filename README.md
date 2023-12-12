@@ -108,6 +108,7 @@ end
 
 subgraph v0.3.x
   algo[algo.hpp]
+  exception[exception.hpp]
 end
 
 type_traits --> iterator
