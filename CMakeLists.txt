@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 
 project("Tiny STL"
-        VERSION 0.3.0
+        VERSION 0.3.1
         DESCRIPTION "A subset of STL, implemented in C++17, CMake, XMake, GTest and Doxygen"
 )
 
