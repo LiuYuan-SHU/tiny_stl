@@ -41,8 +41,8 @@ namespace tiny_stl {
  * @return InputIter The end iterator of the source range.
  */
 template <class InputIter, class ForwardIter>
-InputIter unchecked_uninit_copy(InputIter first, InputIter last,
-                                ForwardIter dest, std::true_type) {
+ForwardIter unchecked_uninit_copy(InputIter first, InputIter last,
+                                  ForwardIter dest, std::true_type) {
   return tiny_stl::copy(first, last, dest);
 }
 
@@ -87,8 +87,8 @@ ForwardIter uninitialized_copy(InputIter first, InputIter last,
                                ForwardIter dest) {
   return tiny_stl::unchecked_uninit_copy(
       first, last, dest,
-      std::is_trivially_copy_assignable_v<
-          typename tiny_stl::iterator_traits<InputIter>::value_type>);
+      std::is_trivially_copy_assignable<
+          typename tiny_stl::iterator_traits<InputIter>::value_type>{});
 }
 
 /**

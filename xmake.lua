@@ -20,3 +20,8 @@ includes("test")
 
 -- doc target
 includes("doc")
+
+target("example")
+    set_kind("binary")
+    add_files("example.cpp")
+target_end()
