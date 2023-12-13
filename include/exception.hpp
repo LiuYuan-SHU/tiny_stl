@@ -7,6 +7,7 @@
 
 namespace tiny_stl {
 
+// #TODO: disable this in release mode
 #define TINY_STL__DEBUG(expr) assert(expr)
 
 #define THROW_LENGTH_ERROR_IF(expr, what)                                      \
