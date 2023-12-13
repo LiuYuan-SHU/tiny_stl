@@ -109,6 +109,7 @@ end
 subgraph v0.3.x
   algo[algo.hpp]
   exception[exception.hpp]
+  vector[vector.hpp]
 end
 
 type_traits --> iterator
@@ -120,6 +121,7 @@ uninitialized --> algobase & construct & iterator & utility
 memory --> construct & iterator & uninitialized & utility
 heap_algo --> iterator
 algo --> algobase & functional & heap_algo & iterator & memory
+vector --> algo & algobase & allocator & exception & iterator & memory & uninitialized & utility
 ```
 
 ### [`type_traits.hpp`](./include/type_traits.hpp)
